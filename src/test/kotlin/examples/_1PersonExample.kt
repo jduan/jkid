@@ -11,8 +11,10 @@ class PersonTest {
     @Test fun test() {
         val person = Person("Alice", 29)
         val json = """{"age": 29, "name": "Alice"}"""
+        val person2 = deserialize<Person>(json)
 
         assertEquals(json, serialize(person))
         assertEquals(person, deserialize(json))
+        assertEquals(person, person2)
     }
 }
